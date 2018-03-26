@@ -1,0 +1,36 @@
+<ion-content >
+  <ion-slides pager (ionSlideDidChange)="slideChanged()">
+      
+      <ion-slide >
+          <div class="slide" >
+               <img src="assets/imgs/1200px-MarvelLogo.svg.png" >
+          </div>
+          <div>
+            <h2>Marvel Hero Finder</h2>
+            <p></p>
+          </div>
+        </ion-slide>
+    
+        <ion-slide  >
+          <div class="slide" style="background: url('assets/imgs/antman.jpg') no-repeat center">
+         
+          </div>
+          <div>
+            <h2>set personal goals</h2>
+            <p></p>
+          </div>
+        </ion-slide>
+    
+        <ion-slide>
+          <div class="slide" style="background: url('assets/imgs/black cat.jpg') no-repeat center">
+            
+          </div>
+          <div>
+            <h2>chat with others</h2>
+            <p></p>
+          </div>
+        </ion-slide>
+
+  </ion-slides>
+  <button   id="skip" (click)="getStart()" >{{ Msg }}</button>
+</ion-content>

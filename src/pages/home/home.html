@@ -1,0 +1,31 @@
+
+
+<ion-content padding style="background: url('assets/imgs/space.jpg') no-repeat">
+  <div >
+      <img src=" assets/imgs/apple-touch-icon-60.png" class="logo"/>
+    </div>
+    
+    <div class="searchContainer">
+        <div class="formCont">
+
+          <form id="marvelSearch"  (ngSubmit)="saveCharacter()" >
+
+            <div id="searchInput">
+
+              <!-- <input type="text" id="search-field" name="q" placeholder="SEARCH" autofocus /> -->
+
+              <ion-searchbar [(ngModel)]="searchName" type="text" id="search-field" name="q" placeholder="SEARCH BY NAME" autofocus >
+
+                </ion-searchbar>
+            </div>
+
+            <div id="submitSearch">
+              <button ion-button type="submit"form="marvelSearch" value="Submit " >
+                <span class="icon-search small">Search </span>
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+</ion-content>
