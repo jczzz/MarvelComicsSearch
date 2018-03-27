@@ -7,12 +7,30 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>comicdetails</ion-title>
+    <ion-title>{{name}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <section *ngIf="items">
+    <ion-item>
+      <img src="{{items.thumbnail.path+'.jpg'}}" >
+    </ion-item>
+    <ion-item>
+      <strong>{{items.title}}</strong>
+    </ion-item>
+    <ion-item>
+      <p><strong>Description:</strong>{{items.description}}</p>
+    </ion-item>
+
+    <ion-item>
+      <h3><strong>Format:</strong>{{items.format}}</h3>
+      </ion-item>
+
+
+  </section>
 
 </ion-content>

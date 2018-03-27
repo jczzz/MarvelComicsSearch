@@ -20,7 +20,7 @@
 
 <ion-content padding class="home">
 
-  <section class ="wrap" *ngFor="let item of items"  (click)="open(item.name, item.comics.items, item.comics.collectionURI)">
+  <section class ="wrap" *ngFor="let item of items"  >
 
     <div class="mh" >
      
@@ -35,6 +35,7 @@
         <p>{{item.description}}</p>
       
       </div>
+      <button ion-button clear item-right (click)="open(item.name, item.comics.items, item.comics.collectionURI)"><span>View {{character}} Comics</span></button>
   </section>
   
 </ion-content>
