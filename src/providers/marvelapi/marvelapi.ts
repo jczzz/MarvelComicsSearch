@@ -6,29 +6,28 @@ import md5 from 'crypto-js/md5';
 
 @Injectable()
 export class MarvelapiProvider {
-  baseUrl:String;
+
   apiKey:String ='4b4aff135af219dbb29f92aa662dce41';
   PRI_KEY:String = "eed535426d2f2f3bcc56e20c43b057da15cea4af";
-  ts:any = new Date().getTime();
 
-  baseredditurl:string;
-  weatherUrl:String;
 
+  //baseredditurl:string;
+  //weatherUrl:String;
   constructor(public http: Http) {
     console.log('Hello MarvelapiProvider Provider');
-    this.baseUrl='https://gateway.marvel.com/v1/public/characters?name=';
-    //for testing
-    this.baseredditurl ='https://www.reddit.com/r';
-    this.weatherUrl='http://api.wunderground.com/api/99dfe35fcb7de1ee/conditions/q';
-  }
-generateHash(){
-   return md5(this.ts + this.PRI_KEY + this.apiKey);
-}
+    console.log('要调用api服务了，constuct初始');
 
+    //for testing
+   // this.baseredditurl ='https://www.reddit.com/r';
+   // this.weatherUrl='http://api.wunderground.com/api/99dfe35fcb7de1ee/conditions/q';
+  }
   getCharacters(name){
     //let hash = this.generateHash();
-    console.log(this.baseUrl+name+'&ts='+this.ts+'&apikey='+this.apiKey+'&hash='+this.generateHash());
-    return this.http.get(this.baseUrl+name+'ts='+this.ts+'&apikey='+this.apiKey+'&hash='+this.generateHash())
+    let ts = new Date().getTime().toString();
+    let hash = md5(ts + this.PRI_KEY + this.apiKey).toString();
+
+    console.log('https://gateway.marvel.com/v1/public/characters?name='+name+'&ts='+ts+'&apikey='+this.apiKey+'&hash='+hash);
+    return this.http.get('https://gateway.marvel.com/v1/public/characters?name='+name+'&ts='+ts+'&apikey='+this.apiKey+'&hash='+hash)
                      .map(res => res.json());
   }
 /** 
@@ -40,11 +39,12 @@ generateHash(){
 
   }
   */
-
+/** 
    // for testing
   getWeather(city){
     console.log(this.weatherUrl+'/FL/'+city+'.json');
      return this.http.get(this.weatherUrl+'/FL/'+city+'.json')
      .map(res => res.json());
   }
+  */
 }

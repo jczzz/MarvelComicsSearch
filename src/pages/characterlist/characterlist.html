@@ -7,10 +7,34 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>characterlist</ion-title>
+    <ion-title>{{character}} </ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
+<!-- <ion-thumbnail  item-left>
+    <img src="{{items.thumbnail.path+'.jpg'}}">
+  </ion-thumbnail>
+ -->
 
+<ion-content padding class="home">
+
+  <section class ="wrap" *ngFor="let item of items"  (click)="open(item.name, item.comics.items, item.comics.collectionURI)">
+
+    <div class="mh" >
+     
+      <div class= "mh-img" >
+          <img src="{{item.thumbnail.path+'.jpg'}}">
+      </div>
+
+      
+    </div>
+    <div>
+        <span>{{item.name}}</span>
+        <p>{{item.description}}</p>
+      
+      </div>
+  </section>
+  
+</ion-content>

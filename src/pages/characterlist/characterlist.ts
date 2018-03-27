@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {NavController, NavParams } from 'ionic-angular';
 import {MarvelapiProvider} from '../../providers/marvelapi/marvelapi';
 import { Storage } from '@ionic/storage';
+
+import {CharacterdetailsPage} from '../characterdetails/characterdetails';
 /**
  * Generated class for the CharacterlistPage page.
  *
@@ -16,7 +18,8 @@ import { Storage } from '@ionic/storage';
 })
 export class CharacterlistPage {
 
-  items:string[];
+  items:any;
+  comics:any;
   character:any;
 
   constructor(
@@ -24,37 +27,70 @@ export class CharacterlistPage {
     public navParams: NavParams,
     private marvelapi:MarvelapiProvider,
     private storage: Storage) {
+      this.getcharacterlist();
   }
 
+ //替换ngOnInit  ionViewDidLoad
+ getcharacterlist(){
+  console.log('ionViewDidLoad CharacterlistPage 开始运转了');
+console.log('首先提取search name');
+  this.storage.get('character').then((val) => {
 
+      console.log(typeof(val));
+      this.character = val;
 
+      //let typeJude = this.checkSearchInput();
+   
+      console.log('Got search name：'+this.character);
+      //if(val !=null || typeJude!= false ) {
+      this.marvelapi.getCharacters(this.character)
+                        .subscribe(response => {
+                          console.log(response);
+                        this.items = response.data.results;
+                         console.log(this.items);
+                                   });
 
+  });
+}
+
+open(name, items, collectionURI) {
+  this.navCtrl.push('CharacterdetailsPage', {
+    name: name,
+    items: items,
+    url: collectionURI,
+  })
+}
+
+  /** 
+  ngOnInit(){
+    this.getSearch(this.character);
+  }
+
+getStorage(){
+  if(localStorage.getItem('character')!=null){
+    this.character=localStorage.getItem('character');
+  }else{
+    //this.navCtrl.push(HomePage);
+  }
+}
+
+getSearch(name){
+  this.marvelapi.getCharacters(name)
+                .subscribe(response => {
+                           this.items = response.data.results;
+                            console.log(this.items);
+                                       });
+
+}
+*/
 
   // checkSearchInput(){
   //   let isString:boolean = typeof(this.character) ==='string';;
   //    return isString
   // }
 
-  //替换ngOnInit
-  ionViewDidLoad(){
-    console.log('ionViewDidLoad CharacterlistPage');
 
-    this.storage.get('character').then((val) => {
 
-        console.log(typeof(val));
-        this.character = val;
-
-        //let typeJude = this.checkSearchInput();
-     
-        console.log('Got search name：'+this.character);
-        //if(val !=null || typeJude!= false ) {
-        this.marvelapi.getCharacters(this.character)
-                          .subscribe(response => {
-                            console.log(response);
-                          this.items = response.data.results;
-                                     });
-
-    });
-  }
+ 
 
 }

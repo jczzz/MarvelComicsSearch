@@ -16,22 +16,33 @@ export class HomePage {
     public navParams: NavParams, 
     private storage:Storage
     ) {
-     
+     this.getSearchName();
+     console.log("constructor 快");
       }
 
-   
 
+ionViewDidLoad(){
+  this.getSearchName();
+  console.log("ionViewDidLoad 快");
+}
+   
+getSearchName(){
+  if(this.storage.get('character') != null){
+    this.storage.clear();
+    //this.searchName = localStorage.getItem('character');
+  } else {
+    
+  }
+}
   saveCharacter(){
     console.log('you are searching '+this.searchName);
-    //第二个参数暂时替换JSON.stringify(character)
-    this.storage.set('character', this.searchName);
 
-    
+    this.storage.set('character', this.searchName);
 
     this.storage.get('character')
                 .then((val) => {
                  if(val !=null ) {
-                     //redirect 导航到CharacterlistPage
+                     console.log(this.searchName+'已保存在storage in home page');
                      this.navCtrl.push(CharacterlistPage);
         
                    } else{
@@ -40,4 +51,6 @@ export class HomePage {
       });
 
 }
+
+
 }
