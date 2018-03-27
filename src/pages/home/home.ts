@@ -41,12 +41,12 @@ getSearchName(){
 
     this.storage.get('character')
                 .then((val) => {
-                 if(val !=null ) {
+                 if(val !=null && typeof(val) ==='string' ) {
                      console.log(this.searchName+'已保存在storage in home page');
                      this.navCtrl.push(CharacterlistPage);
         
                    } else{
-                       alert('please enter invial name');
+                       alert('Please enter valid name !');
                    }
       });
 

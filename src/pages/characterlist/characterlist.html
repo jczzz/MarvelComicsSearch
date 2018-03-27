@@ -22,18 +22,16 @@
 
   <section class ="wrap" *ngFor="let item of items"  >
 
-    <div class="mh" >
-     
+  
       <div class= "mh-img" >
           <img src="{{item.thumbnail.path+'.jpg'}}">
       </div>
 
-      
-    </div>
     <div>
-        <span>{{item.name}}</span>
+        <strong>{{item.name}}</strong>
+        <div>
         <p>{{item.description}}</p>
-      
+      </div>
       </div>
       <button ion-button clear item-right (click)="open(item.name, item.comics.items, item.comics.collectionURI)"><span>View {{character}} Comics</span></button>
   </section>

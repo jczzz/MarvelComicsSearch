@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {NavController, NavParams } from 'ionic-angular';
 import {MarvelapiProvider} from '../../providers/marvelapi/marvelapi';
 import { Storage } from '@ionic/storage';
-
 import {CharacterdetailsPage} from '../characterdetails/characterdetails';
 /**
  * Generated class for the CharacterlistPage page.
@@ -60,37 +59,6 @@ open(name, items, collectionURI) {
     url: collectionURI,
   })
 }
-
-  /** 
-  ngOnInit(){
-    this.getSearch(this.character);
-  }
-
-getStorage(){
-  if(localStorage.getItem('character')!=null){
-    this.character=localStorage.getItem('character');
-  }else{
-    //this.navCtrl.push(HomePage);
-  }
-}
-
-getSearch(name){
-  this.marvelapi.getCharacters(name)
-                .subscribe(response => {
-                           this.items = response.data.results;
-                            console.log(this.items);
-                                       });
-
-}
-*/
-
-  // checkSearchInput(){
-  //   let isString:boolean = typeof(this.character) ==='string';;
-  //    return isString
-  // }
-
-
-
  
 
 }

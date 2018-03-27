@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 
 import { HomePage } from '../home/home';
-import { FavoritePage} from '../favorite/favorite';
+//import { FavoritePage} from '../favorite/favorite';
 import { TopherosPage } from '../topheros/topheros';
 
 @Component({
@@ -12,7 +12,7 @@ export class TabsPage {
 
   tab1Root = HomePage;
   tab2Root = TopherosPage;
-  tab3Root = FavoritePage;
+  //tab3Root = FavoritePage;
 
   constructor() {
 

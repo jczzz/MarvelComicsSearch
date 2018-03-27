@@ -1,15 +1,25 @@
 page-characterlist {
-
+    ion-title {
+        text-align: center !important;
+        line-height: 36px;
+        .toolbar-title {
+            font-size: 16px !important;
+        }
+    }
     ion-content {
      
         background: #f7f7f7 !important;
-        .bar {
-            width: 100%;
-            display: block;
-            height: 2rem;
-            clear: both;
-            overflow: hidden;
+        img {
+          
+           margin-top: 5%;
         }
+        p {
+            width: 92%;
+            display: block;
+            line-height: 2rem;
+            margin: 0 auto;
+        }
+
         .wrap {
             width: 92%;
             padding-top: 0.9rem;
@@ -36,15 +46,7 @@ page-characterlist {
                     background-size: cover !important;
                     background-position: center center !important;
                 }
-                p {
-                    width: 92%;
-                    display: block;
-                    line-height: 2rem;
-                    margin: 0 auto;
-                    text-overflow: ellipsis;
-                    overflow: hidden;
-                    white-space: nowrap;
-                }
+               
                 span {
                     margin: 0 auto 0.3rem;
                     width: 92%;
@@ -56,9 +58,7 @@ page-characterlist {
                     white-space: nowrap;
                 }
             }
-            .mh:nth-of-type(3n-1) {
-                margin: 0 1.5%;
-            }
+         
         }
     }
 
