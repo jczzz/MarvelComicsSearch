@@ -1,5 +1,7 @@
 # MarvelComicsSearch
 
+ A hybrid mobile application that displays a searchable list of Marvel superheroes/characters along with information about the characters and comics.
+
 ## Version
 ```sh
 node : v8.9.3
