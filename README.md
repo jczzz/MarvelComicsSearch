@@ -24,3 +24,9 @@ npm install
 ```sh
 ionic serve
 ```
+
+
+## Screenshot
+![home](https://github.com/jczzz/MarvelComicsSearch/blob/master/screenshot/Capture1.JPG)
+![search](https://github.com/jczzz/MarvelComicsSearch/blob/master/screenshot/Capture2.JPG)
+![feature](https://github.com/jczzz/MarvelComicsSearch/blob/master/screenshot/Capture6.JPG)
